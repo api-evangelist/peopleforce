@@ -8,8 +8,7 @@ type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
+tags: []
 created: '2025-02-08'
 modified: '2025-02-08'
 url: >-
@@ -23,8 +22,7 @@ apis:
       information about entities stored in the database and perform actions with them.
       The API is organised using REST.
     humanURL: ' https://developer.peopleforce.io/docs/getting-started'
-    tags:
-      - API
+    tags: []
     properties:
       - type: Documentation
         url: ' https://developer.peopleforce.io/docs/getting-started'
