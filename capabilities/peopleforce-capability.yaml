@@ -1,0 +1,593 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleForce API
+  description: PeopleForce is an HR platform offering a REST API for managing employees, candidates, leave requests, departments,
+    divisions, positions, and other HR-related entities.
+  tags:
+  - Peopleforce
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: peopleforce
+    baseUri: https://app.peopleforce.io/api/public/v2
+    description: PeopleForce API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{PEOPLEFORCE_TOKEN}}'
+    resources:
+    - name: employees
+      path: /employees
+      operations:
+      - name: get-employees
+        method: GET
+        description: List employees
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: post-employees
+        method: POST
+        description: Create an employee
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: employees-id
+      path: /employees/{id}
+      operations:
+      - name: get-employees-id
+        method: GET
+        description: Get an employee
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patch-employees-id
+        method: PATCH
+        description: Update an employee
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: candidates
+      path: /candidates
+      operations:
+      - name: get-candidates
+        method: GET
+        description: List candidates
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: post-candidates
+        method: POST
+        description: Create a candidate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: candidates-id
+      path: /candidates/{id}
+      operations:
+      - name: get-candidates-id
+        method: GET
+        description: Get a candidate
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: vacancies
+      path: /vacancies
+      operations:
+      - name: get-vacancies
+        method: GET
+        description: List vacancies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: vacancies-id
+      path: /vacancies/{id}
+      operations:
+      - name: get-vacancies-id
+        method: GET
+        description: Get a vacancy
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: leave-requests
+      path: /leave_requests
+      operations:
+      - name: get-leave-requests
+        method: GET
+        description: List leave requests
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: post-leave-requests
+        method: POST
+        description: Create a leave request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: leave-requests-id
+      path: /leave_requests/{id}
+      operations:
+      - name: get-leave-requests-id
+        method: GET
+        description: Get a leave request
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: departments
+      path: /departments
+      operations:
+      - name: get-departments
+        method: GET
+        description: List departments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: divisions
+      path: /divisions
+      operations:
+      - name: get-divisions
+        method: GET
+        description: List divisions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: positions
+      path: /positions
+      operations:
+      - name: get-positions
+        method: GET
+        description: List positions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: peopleforce-rest
+    description: REST adapter for PeopleForce API.
+    resources:
+    - path: /employees
+      name: get-employees
+      operations:
+      - method: GET
+        name: get-employees
+        description: List employees
+        call: peopleforce.get-employees
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /employees
+      name: post-employees
+      operations:
+      - method: POST
+        name: post-employees
+        description: Create an employee
+        call: peopleforce.post-employees
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /employees/{id}
+      name: get-employees-id
+      operations:
+      - method: GET
+        name: get-employees-id
+        description: Get an employee
+        call: peopleforce.get-employees-id
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /employees/{id}
+      name: patch-employees-id
+      operations:
+      - method: PATCH
+        name: patch-employees-id
+        description: Update an employee
+        call: peopleforce.patch-employees-id
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /candidates
+      name: get-candidates
+      operations:
+      - method: GET
+        name: get-candidates
+        description: List candidates
+        call: peopleforce.get-candidates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /candidates
+      name: post-candidates
+      operations:
+      - method: POST
+        name: post-candidates
+        description: Create a candidate
+        call: peopleforce.post-candidates
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /candidates/{id}
+      name: get-candidates-id
+      operations:
+      - method: GET
+        name: get-candidates-id
+        description: Get a candidate
+        call: peopleforce.get-candidates-id
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /vacancies
+      name: get-vacancies
+      operations:
+      - method: GET
+        name: get-vacancies
+        description: List vacancies
+        call: peopleforce.get-vacancies
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /vacancies/{id}
+      name: get-vacancies-id
+      operations:
+      - method: GET
+        name: get-vacancies-id
+        description: Get a vacancy
+        call: peopleforce.get-vacancies-id
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /leave_requests
+      name: get-leave-requests
+      operations:
+      - method: GET
+        name: get-leave-requests
+        description: List leave requests
+        call: peopleforce.get-leave-requests
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /leave_requests
+      name: post-leave-requests
+      operations:
+      - method: POST
+        name: post-leave-requests
+        description: Create a leave request
+        call: peopleforce.post-leave-requests
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /leave_requests/{id}
+      name: get-leave-requests-id
+      operations:
+      - method: GET
+        name: get-leave-requests-id
+        description: Get a leave request
+        call: peopleforce.get-leave-requests-id
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /departments
+      name: get-departments
+      operations:
+      - method: GET
+        name: get-departments
+        description: List departments
+        call: peopleforce.get-departments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /divisions
+      name: get-divisions
+      operations:
+      - method: GET
+        name: get-divisions
+        description: List divisions
+        call: peopleforce.get-divisions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /positions
+      name: get-positions
+      operations:
+      - method: GET
+        name: get-positions
+        description: List positions
+        call: peopleforce.get-positions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: peopleforce-mcp
+    transport: http
+    description: MCP adapter for PeopleForce API for AI agent use.
+    tools:
+    - name: get-employees
+      description: List employees
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce.get-employees
+      with:
+        page: tools.page
+        per_page: tools.per_page
+      inputParameters:
+      - name: page
+        type: integer
+        description: page
+      - name: per_page
+        type: integer
+        description: per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: post-employees
+      description: Create an employee
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: peopleforce.post-employees
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-employees-id
+      description: Get an employee
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce.get-employees-id
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: string
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patch-employees-id
+      description: Update an employee
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: peopleforce.patch-employees-id
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: string
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-candidates
+      description: List candidates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce.get-candidates
+      with:
+        page: tools.page
+        per_page: tools.per_page
+      inputParameters:
+      - name: page
+        type: integer
+        description: page
+      - name: per_page
+        type: integer
+        description: per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: post-candidates
+      description: Create a candidate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: peopleforce.post-candidates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-candidates-id
+      description: Get a candidate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce.get-candidates-id
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: string
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-vacancies
+      description: List vacancies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce.get-vacancies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-vacancies-id
+      description: Get a vacancy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce.get-vacancies-id
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: string
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-leave-requests
+      description: List leave requests
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce.get-leave-requests
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: post-leave-requests
+      description: Create a leave request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: peopleforce.post-leave-requests
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-leave-requests-id
+      description: Get a leave request
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce.get-leave-requests-id
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: string
+        description: id
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-departments
+      description: List departments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce.get-departments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-divisions
+      description: List divisions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce.get-divisions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-positions
+      description: List positions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce.get-positions
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    PEOPLEFORCE_TOKEN: PEOPLEFORCE_TOKEN
