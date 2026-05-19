@@ -1,0 +1,200 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: PeopleForce API — Employees
+  description: 'PeopleForce API — Employees. 4 operations. Lead operation: List employees. Self-contained Naftiko capability
+    covering one Peopleforce business surface.'
+  tags:
+  - Peopleforce
+  - Employees
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PEOPLEFORCE_API_KEY: PEOPLEFORCE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: peopleforce-employees
+    baseUri: https://app.peopleforce.io/api/public/v2
+    description: PeopleForce API — Employees business capability. Self-contained, no shared references.
+    resources:
+    - name: employees
+      path: /employees
+      operations:
+      - name: get
+        method: GET
+        description: List employees
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+      - name: post
+        method: POST
+        description: Create an employee
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: employees-id
+      path: /employees/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Get an employee
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      - name: patch
+        method: PATCH
+        description: Update an employee
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.PEOPLEFORCE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: peopleforce-employees-rest
+    port: 8080
+    description: REST adapter for PeopleForce API — Employees. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/employees
+      name: employees
+      description: REST surface for employees.
+      operations:
+      - method: GET
+        name: get
+        description: List employees
+        call: peopleforce-employees.get
+        with:
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Create an employee
+        call: peopleforce-employees.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/employees/{id}
+      name: employees-id
+      description: REST surface for employees-id.
+      operations:
+      - method: GET
+        name: get
+        description: Get an employee
+        call: peopleforce-employees.get
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patch
+        description: Update an employee
+        call: peopleforce-employees.patch
+        with:
+          id: rest.id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: peopleforce-employees-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for PeopleForce API — Employees. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-employees
+      description: List employees
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce-employees.get
+      with:
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-employee
+      description: Create an employee
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: peopleforce-employees.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-employee
+      description: Get an employee
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: peopleforce-employees.get
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-employee
+      description: Update an employee
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: peopleforce-employees.patch
+      with:
+        id: tools.id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
