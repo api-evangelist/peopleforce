@@ -1,6 +1,7 @@
 aid: peopleforce
 name: PeopleForce
-description: PeopleForce is an HR platform whose REST API allows retrieving information about HR entities such as employees,
+description: >-
+  PeopleForce is an HR platform whose REST API allows retrieving information about HR entities such as employees,
   candidates, vacancies, leave requests, departments, divisions, and positions, and performing actions on them.
 type: Index
 position: Consumer
@@ -18,36 +19,23 @@ specificationVersion: '0.19'
 apis:
   - aid: peopleforce:peopleforce
     name: PeopleForce API
-    description: PeopleForce REST API for managing HR entities including employees, candidates, vacancies, leave requests, departments,
-      divisions, and positions.
+    description: >-
+      PeopleForce REST API for managing HR entities including employees, candidates, vacancies, leave requests,
+      departments, divisions, and positions.
     humanURL: https://developer.peopleforce.io/docs/getting-started
     baseURL: https://app.peopleforce.io/api/public/v2
     tags:
-    - HR
-    - Human Resources
-    - Recruitment
-    - Employees
+      - HR
+      - Human Resources
+      - Recruitment
+      - Employees
     properties:
-    - type: Documentation
-      url: https://developer.peopleforce.io/docs/getting-started
-    - type: Reference
-      url: https://developer.peopleforce.io/reference
-    - type: OpenAPI
-      url: https://raw.githubusercontent.com/api-evangelist/peopleforce/refs/heads/main/openapi/peopleforce-openapi.yml
-    - type: NaftikoCapability
-      url: capabilities/peopleforce-candidates.yaml
-    - type: NaftikoCapability
-      url: capabilities/peopleforce-departments.yaml
-    - type: NaftikoCapability
-      url: capabilities/peopleforce-divisions.yaml
-    - type: NaftikoCapability
-      url: capabilities/peopleforce-employees.yaml
-    - type: NaftikoCapability
-      url: capabilities/peopleforce-leave-requests.yaml
-    - type: NaftikoCapability
-      url: capabilities/peopleforce-positions.yaml
-    - type: NaftikoCapability
-      url: capabilities/peopleforce-vacancies.yaml
+      - type: Documentation
+        url: https://developer.peopleforce.io/docs/getting-started
+      - type: Reference
+        url: https://developer.peopleforce.io/reference
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/peopleforce/refs/heads/main/openapi/peopleforce-openapi.yml
 common:
   - type: GitHubOrganization
     url: https://github.com/peopleforce

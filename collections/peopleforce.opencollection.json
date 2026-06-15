@@ -1,0 +1,312 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleForce API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Employees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/employees",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of employees."
+        },
+        {
+          "info": {
+            "name": "Create an employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.peopleforce.io/api/public/v2/employees",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an employee"
+        },
+        {
+          "info": {
+            "name": "Get an employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/employees/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an employee"
+        },
+        {
+          "info": {
+            "name": "Update an employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.peopleforce.io/api/public/v2/employees/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an employee"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Candidates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List candidates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/candidates",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List candidates"
+        },
+        {
+          "info": {
+            "name": "Create a candidate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.peopleforce.io/api/public/v2/candidates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a candidate"
+        },
+        {
+          "info": {
+            "name": "Get a candidate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/candidates/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a candidate"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Vacancies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List vacancies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/vacancies"
+          },
+          "docs": "List vacancies"
+        },
+        {
+          "info": {
+            "name": "Get a vacancy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/vacancies/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a vacancy"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Leave Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List leave requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/leave_requests"
+          },
+          "docs": "List leave requests"
+        },
+        {
+          "info": {
+            "name": "Create a leave request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.peopleforce.io/api/public/v2/leave_requests",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a leave request"
+        },
+        {
+          "info": {
+            "name": "Get a leave request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/leave_requests/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a leave request"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Departments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List departments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/departments"
+          },
+          "docs": "List departments"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Divisions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List divisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/divisions"
+          },
+          "docs": "List divisions"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Positions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List positions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/positions"
+          },
+          "docs": "List positions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
