@@ -49,7 +49,7 @@ common:
     url: https://app.peopleforce.io
   - type: Website
     url: https://peopleforce.io/
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://developer.peopleforce.io/llms.txt
 maintainers:
   - FN: Kin Lane
