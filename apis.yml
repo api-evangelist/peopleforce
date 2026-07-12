@@ -54,3 +54,11 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+
+common:
+  - type: DomainSecurity
+    url: security/peopleforce-domain-security.yml
+  - type: Authentication
+    url: authentication/peopleforce-authentication.yml
+  - url: https://peopleforce.io/blog
+    type: Blog
