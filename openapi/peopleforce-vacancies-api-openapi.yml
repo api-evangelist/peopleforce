@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  title: PeopleForce Candidates Vacancies API
+  description: PeopleForce is an HR platform offering a REST API for managing employees, candidates, leave requests, departments, divisions, positions, and other HR-related entities.
+  version: v2
+  contact:
+    name: PeopleForce Support
+    url: https://developer.peopleforce.io/docs/getting-started
+servers:
+- url: https://app.peopleforce.io/api/public/v2
+  description: PeopleForce production API
+security:
+- BearerAuth: []
+tags:
+- name: Vacancies
+  description: Open positions and vacancies.
+paths:
+  /vacancies:
+    get:
+      tags:
+      - Vacancies
+      summary: List vacancies
+      responses:
+        '200':
+          description: A list of vacancies.
+  /vacancies/{id}:
+    get:
+      tags:
+      - Vacancies
+      summary: Get a vacancy
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A vacancy record.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: API Token

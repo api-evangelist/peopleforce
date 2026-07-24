@@ -1,0 +1,31 @@
+openapi: 3.0.3
+info:
+  title: PeopleForce Candidates Departments API
+  description: PeopleForce is an HR platform offering a REST API for managing employees, candidates, leave requests, departments, divisions, positions, and other HR-related entities.
+  version: v2
+  contact:
+    name: PeopleForce Support
+    url: https://developer.peopleforce.io/docs/getting-started
+servers:
+- url: https://app.peopleforce.io/api/public/v2
+  description: PeopleForce production API
+security:
+- BearerAuth: []
+tags:
+- name: Departments
+  description: Departments within the organization.
+paths:
+  /departments:
+    get:
+      tags:
+      - Departments
+      summary: List departments
+      responses:
+        '200':
+          description: A list of departments.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: API Token
