@@ -4,9 +4,22 @@ description: >-
   PeopleForce is an HR platform whose REST API allows retrieving information about HR entities such as employees,
   candidates, vacancies, leave requests, departments, divisions, and positions, and performing actions on them.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/peopleforce.png
 tags:
   - HR
   - Human Resources
@@ -17,25 +30,104 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/peopleforce/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: peopleforce:peopleforce
-    name: PeopleForce API
-    description: >-
-      PeopleForce REST API for managing HR entities including employees, candidates, vacancies, leave requests,
-      departments, divisions, and positions.
-    humanURL: https://developer.peopleforce.io/docs/getting-started
-    baseURL: https://app.peopleforce.io/api/public/v2
-    tags:
-      - HR
-      - Human Resources
-      - Recruitment
-      - Employees
-    properties:
-      - type: Documentation
-        url: https://developer.peopleforce.io/docs/getting-started
-      - type: Reference
-        url: https://developer.peopleforce.io/reference
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/peopleforce/refs/heads/main/openapi/peopleforce-openapi.yml
+- aid: peopleforce:peopleforce-candidates-api
+  name: PeopleForce Candidates API
+  description: Recruitment candidate management.
+  humanURL: https://developer.peopleforce.io/docs/getting-started
+  baseURL: https://app.peopleforce.io/api/public/v2
+  tags:
+  - Candidates
+  properties:
+  - type: OpenAPI
+    url: openapi/peopleforce-candidates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.peopleforce.io/docs/getting-started
+  - type: Reference
+    url: https://developer.peopleforce.io/reference
+- aid: peopleforce:peopleforce-departments-api
+  name: PeopleForce Departments API
+  description: Departments within the organization.
+  humanURL: https://developer.peopleforce.io/docs/getting-started
+  baseURL: https://app.peopleforce.io/api/public/v2
+  tags:
+  - Departments
+  properties:
+  - type: OpenAPI
+    url: openapi/peopleforce-departments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.peopleforce.io/docs/getting-started
+  - type: Reference
+    url: https://developer.peopleforce.io/reference
+- aid: peopleforce:peopleforce-divisions-api
+  name: PeopleForce Divisions API
+  description: Divisions within the organization.
+  humanURL: https://developer.peopleforce.io/docs/getting-started
+  baseURL: https://app.peopleforce.io/api/public/v2
+  tags:
+  - Divisions
+  properties:
+  - type: OpenAPI
+    url: openapi/peopleforce-divisions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.peopleforce.io/docs/getting-started
+  - type: Reference
+    url: https://developer.peopleforce.io/reference
+- aid: peopleforce:peopleforce-employees-api
+  name: PeopleForce Employees API
+  description: Employee profiles, positions, and compensation.
+  humanURL: https://developer.peopleforce.io/docs/getting-started
+  baseURL: https://app.peopleforce.io/api/public/v2
+  tags:
+  - Employees
+  properties:
+  - type: OpenAPI
+    url: openapi/peopleforce-employees-api-openapi.yml
+  - type: Documentation
+    url: https://developer.peopleforce.io/docs/getting-started
+  - type: Reference
+    url: https://developer.peopleforce.io/reference
+- aid: peopleforce:peopleforce-leave-requests-api
+  name: PeopleForce Leave Requests API
+  description: Time off and leave management.
+  humanURL: https://developer.peopleforce.io/docs/getting-started
+  baseURL: https://app.peopleforce.io/api/public/v2
+  tags:
+  - Leave Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/peopleforce-leave-requests-api-openapi.yml
+  - type: Documentation
+    url: https://developer.peopleforce.io/docs/getting-started
+  - type: Reference
+    url: https://developer.peopleforce.io/reference
+- aid: peopleforce:peopleforce-positions-api
+  name: PeopleForce Positions API
+  description: Job positions.
+  humanURL: https://developer.peopleforce.io/docs/getting-started
+  baseURL: https://app.peopleforce.io/api/public/v2
+  tags:
+  - Positions
+  properties:
+  - type: OpenAPI
+    url: openapi/peopleforce-positions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.peopleforce.io/docs/getting-started
+  - type: Reference
+    url: https://developer.peopleforce.io/reference
+- aid: peopleforce:peopleforce-vacancies-api
+  name: PeopleForce Vacancies API
+  description: Open positions and vacancies.
+  humanURL: https://developer.peopleforce.io/docs/getting-started
+  baseURL: https://app.peopleforce.io/api/public/v2
+  tags:
+  - Vacancies
+  properties:
+  - type: OpenAPI
+    url: openapi/peopleforce-vacancies-api-openapi.yml
+  - type: Documentation
+    url: https://developer.peopleforce.io/docs/getting-started
+  - type: Reference
+    url: https://developer.peopleforce.io/reference
 common:
   - type: GitHubOrganization
     url: https://github.com/peopleforce
