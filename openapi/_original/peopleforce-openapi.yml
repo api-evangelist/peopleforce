@@ -1,0 +1,227 @@
+openapi: 3.0.3
+info:
+  title: PeopleForce API
+  description: >-
+    PeopleForce is an HR platform offering a REST API for managing employees,
+    candidates, leave requests, departments, divisions, positions, and other
+    HR-related entities.
+  version: v2
+  contact:
+    name: PeopleForce Support
+    url: https://developer.peopleforce.io/docs/getting-started
+servers:
+  - url: https://app.peopleforce.io/api/public/v2
+    description: PeopleForce production API
+security:
+  - BearerAuth: []
+tags:
+  - name: Employees
+    description: Employee profiles, positions, and compensation.
+  - name: Candidates
+    description: Recruitment candidate management.
+  - name: Vacancies
+    description: Open positions and vacancies.
+  - name: Leave Requests
+    description: Time off and leave management.
+  - name: Departments
+    description: Departments within the organization.
+  - name: Divisions
+    description: Divisions within the organization.
+  - name: Positions
+    description: Job positions.
+paths:
+  /employees:
+    get:
+      tags:
+        - Employees
+      summary: List employees
+      description: Returns a paginated list of employees.
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of employees.
+    post:
+      tags:
+        - Employees
+      summary: Create an employee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: The created employee.
+  /employees/{id}:
+    get:
+      tags:
+        - Employees
+      summary: Get an employee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: An employee record.
+    patch:
+      tags:
+        - Employees
+      summary: Update an employee
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: The updated employee.
+  /candidates:
+    get:
+      tags:
+        - Candidates
+      summary: List candidates
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of candidates.
+    post:
+      tags:
+        - Candidates
+      summary: Create a candidate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: The created candidate.
+  /candidates/{id}:
+    get:
+      tags:
+        - Candidates
+      summary: Get a candidate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A candidate record.
+  /vacancies:
+    get:
+      tags:
+        - Vacancies
+      summary: List vacancies
+      responses:
+        '200':
+          description: A list of vacancies.
+  /vacancies/{id}:
+    get:
+      tags:
+        - Vacancies
+      summary: Get a vacancy
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A vacancy record.
+  /leave_requests:
+    get:
+      tags:
+        - Leave Requests
+      summary: List leave requests
+      responses:
+        '200':
+          description: A list of leave requests.
+    post:
+      tags:
+        - Leave Requests
+      summary: Create a leave request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: The created leave request.
+  /leave_requests/{id}:
+    get:
+      tags:
+        - Leave Requests
+      summary: Get a leave request
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A leave request record.
+  /departments:
+    get:
+      tags:
+        - Departments
+      summary: List departments
+      responses:
+        '200':
+          description: A list of departments.
+  /divisions:
+    get:
+      tags:
+        - Divisions
+      summary: List divisions
+      responses:
+        '200':
+          description: A list of divisions.
+  /positions:
+    get:
+      tags:
+        - Positions
+      summary: List positions
+      responses:
+        '200':
+          description: A list of positions.
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: API Token

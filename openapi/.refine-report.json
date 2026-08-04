@@ -1,0 +1,26 @@
+{
+  "provider": "peopleforce",
+  "sources": [
+    "peopleforce-candidates-api-openapi.yml",
+    "peopleforce-departments-api-openapi.yml",
+    "peopleforce-divisions-api-openapi.yml",
+    "peopleforce-employees-api-openapi.yml",
+    "peopleforce-leave-requests-api-openapi.yml",
+    "peopleforce-positions-api-openapi.yml",
+    "peopleforce-vacancies-api-openapi.yml"
+  ],
+  "outputs": [
+    "peopleforce-candidates-api-openapi.yml",
+    "peopleforce-departments-api-openapi.yml",
+    "peopleforce-divisions-api-openapi.yml",
+    "peopleforce-employees-api-openapi.yml",
+    "peopleforce-leave-requests-api-openapi.yml",
+    "peopleforce-positions-api-openapi.yml",
+    "peopleforce-vacancies-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
