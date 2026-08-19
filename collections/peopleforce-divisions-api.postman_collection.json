@@ -1,0 +1,106 @@
+{
+  "item": [
+    {
+      "id": "c2884277-84a6-4c89-ab68-57886f1c16c3",
+      "name": "Divisions",
+      "description": {
+        "content": "Divisions within the organization.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "845fd5ab-064f-4385-86ad-4d0fbfaad834",
+          "name": "List divisions",
+          "request": {
+            "name": "List divisions",
+            "description": {},
+            "url": {
+              "path": [
+                "divisions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e740682-ebf9-4d6c-b6f4-99b168dbf207",
+              "name": "A list of divisions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "divisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.peopleforce.io/api/public/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5cd183c0-1d20-4850-b6cb-1fbf93ea523f",
+    "name": "PeopleForce Candidates Divisions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PeopleForce is an HR platform offering a REST API for managing employees, candidates, leave requests, departments, divisions, positions, and other HR-related entities.\n\nContact Support:\n Name: PeopleForce Support",
+      "type": "text/plain"
+    }
+  }
+}

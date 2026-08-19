@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleForce Candidates Divisions API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Divisions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List divisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/divisions"
+          },
+          "docs": "List divisions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

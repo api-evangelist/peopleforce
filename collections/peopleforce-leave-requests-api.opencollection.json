@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PeopleForce Candidates Leave Requests API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Leave Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List leave requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/leave_requests"
+          },
+          "docs": "List leave requests"
+        },
+        {
+          "info": {
+            "name": "Create a leave request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.peopleforce.io/api/public/v2/leave_requests",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a leave request"
+        },
+        {
+          "info": {
+            "name": "Get a leave request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.peopleforce.io/api/public/v2/leave_requests/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a leave request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

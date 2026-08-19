@@ -1,0 +1,189 @@
+{
+  "item": [
+    {
+      "id": "ab6f00e8-325e-4a23-8fde-62d652ae03df",
+      "name": "Vacancies",
+      "description": {
+        "content": "Open positions and vacancies.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f53b53fb-15ec-48e1-b512-aa160c11908f",
+          "name": "List vacancies",
+          "request": {
+            "name": "List vacancies",
+            "description": {},
+            "url": {
+              "path": [
+                "vacancies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a0c74f9-16d2-4ade-9f36-d25ac9e9b41b",
+              "name": "A list of vacancies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vacancies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5491da52-c6ad-4e55-b81e-7de9cb930211",
+          "name": "Get a vacancy",
+          "request": {
+            "name": "Get a vacancy",
+            "description": {},
+            "url": {
+              "path": [
+                "vacancies",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7367c767-5f02-4598-9d2c-c1b868aeb9e7",
+              "name": "A vacancy record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vacancies",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.peopleforce.io/api/public/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b64a1e83-677c-42ca-889a-9354d4e32260",
+    "name": "PeopleForce Candidates Vacancies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PeopleForce is an HR platform offering a REST API for managing employees, candidates, leave requests, departments, divisions, positions, and other HR-related entities.\n\nContact Support:\n Name: PeopleForce Support",
+      "type": "text/plain"
+    }
+  }
+}

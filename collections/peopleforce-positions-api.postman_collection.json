@@ -1,0 +1,106 @@
+{
+  "item": [
+    {
+      "id": "82e8a02c-5500-4764-b1c7-1a28476c2a76",
+      "name": "Positions",
+      "description": {
+        "content": "Job positions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "87d40bca-306f-4e32-a538-aa02465c0bc7",
+          "name": "List positions",
+          "request": {
+            "name": "List positions",
+            "description": {},
+            "url": {
+              "path": [
+                "positions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b3c478e-174b-43f7-9a6c-e811306c02d5",
+              "name": "A list of positions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "positions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.peopleforce.io/api/public/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b61bc141-0f38-4844-80d2-37d51ae30bb5",
+    "name": "PeopleForce Candidates Positions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PeopleForce is an HR platform offering a REST API for managing employees, candidates, leave requests, departments, divisions, positions, and other HR-related entities.\n\nContact Support:\n Name: PeopleForce Support",
+      "type": "text/plain"
+    }
+  }
+}
