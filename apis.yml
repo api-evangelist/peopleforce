@@ -1,8 +1,8 @@
 aid: peopleforce
 name: PeopleForce
-description: >-
-  PeopleForce is an HR platform whose REST API allows retrieving information about HR entities such as employees,
-  candidates, vacancies, leave requests, departments, divisions, and positions, and performing actions on them.
+description: PeopleForce is an HR platform whose REST API allows retrieving information about HR entities
+  such as employees, candidates, vacancies, leave requests, departments, divisions, and positions, and
+  performing actions on them.
 type: Index
 deliveryModel:
   model: unknown
@@ -33,12 +33,12 @@ position: Consuming
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/peopleforce.png
 tags:
-  - HR
-  - Human Resources
-  - Recruitment
-  - Employees
+- HR
+- Human Resources
+- Recruitment
+- Employees
 created: '2025-02-08'
-modified: '2026-05-19'
+modified: '2026-09-16'
 url: https://raw.githubusercontent.com/api-evangelist/peopleforce/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
@@ -141,30 +141,16 @@ apis:
   - type: Reference
     url: https://developer.peopleforce.io/reference
 common:
-  - type: GitHubOrganization
-    url: https://github.com/peopleforce
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/peopleforce
-  - type: Portal
-    url: https://peopleforce.io/
-  - type: Documentation
-    url: https://developer.peopleforce.io/docs/getting-started
-  - type: Login
-    url: https://app.peopleforce.io
-  - type: Website
-    url: https://peopleforce.io/
-  - type: LlmsText
-    url: https://developer.peopleforce.io/llms.txt
+- type: Website
+  url: https://peopleforce.io
+- type: AgenticAccess
+  url: agentic-access/peopleforce-agentic-access.yml
+- type: DomainSecurity
+  url: security/peopleforce-domain-security.yml
+- type: Authentication
+  url: authentication/peopleforce-authentication.yml
+- url: https://peopleforce.io/blog
+  type: Blog
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
-
-common:
-  - type: AgenticAccess
-    url: agentic-access/peopleforce-agentic-access.yml
-  - type: DomainSecurity
-    url: security/peopleforce-domain-security.yml
-  - type: Authentication
-    url: authentication/peopleforce-authentication.yml
-  - url: https://peopleforce.io/blog
-    type: Blog
+- FN: Kin Lane
+  email: kin@apievangelist.com
