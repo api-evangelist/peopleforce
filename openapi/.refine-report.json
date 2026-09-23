@@ -1,13 +1,7 @@
 {
   "provider": "peopleforce",
   "sources": [
-    "peopleforce-candidates-api-openapi.yml",
-    "peopleforce-departments-api-openapi.yml",
-    "peopleforce-divisions-api-openapi.yml",
-    "peopleforce-employees-api-openapi.yml",
-    "peopleforce-leave-requests-api-openapi.yml",
-    "peopleforce-positions-api-openapi.yml",
-    "peopleforce-vacancies-api-openapi.yml"
+    "_original/peopleforce-openapi.yml"
   ],
   "outputs": [
     "peopleforce-candidates-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "peopleforce-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "peopleforce-candidates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "peopleforce-departments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "peopleforce-divisions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "peopleforce-employees-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "peopleforce-leave-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "peopleforce-positions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "peopleforce-vacancies-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

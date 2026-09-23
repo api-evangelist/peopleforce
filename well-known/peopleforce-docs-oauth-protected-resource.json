@@ -1,0 +1,1 @@
+{"resource":"https://docs.peopleforce.io/mcp","authorization_servers":["https://docs.peopleforce.io"],"bearer_methods_supported":["header"],"scopes_supported":["mcp"],"resource_name":"PeopleForce MCP"}

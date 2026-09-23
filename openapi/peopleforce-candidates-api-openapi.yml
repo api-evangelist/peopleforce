@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: PeopleForce Candidates API
   description: PeopleForce is an HR platform offering a REST API for managing employees, candidates, leave requests, departments, divisions, positions, and other HR-related entities.
@@ -32,6 +32,8 @@ paths:
       responses:
         '200':
           description: A list of candidates.
+      operationId: getCandidates
+      x-operation-id-source: derived
     post:
       tags:
       - Candidates
@@ -45,6 +47,8 @@ paths:
       responses:
         '201':
           description: The created candidate.
+      operationId: postCandidates
+      x-operation-id-source: derived
   /candidates/{id}:
     get:
       tags:
@@ -59,6 +63,8 @@ paths:
       responses:
         '200':
           description: A candidate record.
+      operationId: getCandidatesById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     BearerAuth:
