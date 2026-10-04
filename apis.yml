@@ -145,6 +145,9 @@ apis:
   - type: Reference
     url: https://developer.peopleforce.io/reference
 common:
+- type: CapabilityMap
+  url: capabilities/peopleforce-capability-edges.yml
+  name: PeopleForce Business Capability Map
 - type: Website
   url: https://peopleforce.io
 - type: AgenticAccess

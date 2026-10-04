@@ -1,0 +1,43 @@
+slug: peopleforce
+provider: PeopleForce
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Candidates
+  spec_file: peopleforce-candidates-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.92
+  evidence: List candidates / Create a candidate on an "HR platform offering a REST API for managing employees,
+    candidates, ..."
+  reason: Candidate records on an HR/recruiting platform are recruiting pipeline objects, squarely Talent
+    Acquisition Management.
+- tag: Leave Requests
+  spec_file: peopleforce-leave-requests-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.72
+  evidence: GET /leave_requests  List leave requests / POST /leave_requests  Create a leave request
+  reason: Absence/leave request administration is an HR service-delivery transaction; HR Operations is
+    the closest fit though it touches benefits administration, so confidence is tempered.
+- tag: Positions
+  spec_file: peopleforce-positions-api-openapi.yml
+  capability_id: BC-300
+  capability_id_l1: BC-300
+  capability_name: Human Capital Management
+  confidence: 0.7
+  evidence: GET /positions  List positions — HR platform managing "departments, divisions, positions"
+  reason: Position reference data in an HRIS clearly sits in Human Capital Management, but it could serve
+    workforce planning, job architecture or recruiting, so only the L1 is asserted.
