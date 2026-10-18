@@ -52,7 +52,7 @@
     - connectors/applications/peopleforce
     vendor_link: https://peopleforce.io/
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: peopleforce-google-workspace-own
   label: Google Workspace (own)
